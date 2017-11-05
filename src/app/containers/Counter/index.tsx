@@ -3,7 +3,7 @@ import { increment, decrement } from 'modules/counter/';
 import { ICounter } from 'models/counter';
 import { ICounterAction } from 'models/counter';
 const { connect } = require('react-redux');
-const style = require('./style.css');
+const style = require('./style.scss');
 
 interface IProps {
   counter: ICounter;

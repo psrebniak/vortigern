@@ -50,12 +50,13 @@ var config = {
         loader: 'json-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         include: path.resolve('./src/app'),
         loaders: [
           'style-loader',
           'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]',
-          'postcss-loader'
+          'postcss-loader',
+          'sass-loader'
         ]
       },
       {
@@ -100,15 +101,19 @@ var config = {
         },
         postcss: function () {
           return [
-            stylelint({
-              files: '../../src/app/*.css'
-            }),
             postcssNext(),
             postcssAssets({
               relative: true
             }),
           ];
         },
+        sass: function() {
+          return [
+            stylelint({
+              files: '../../src/app/*.scss'
+            })
+          ]
+        }
       }
     }),
     new ManifestPlugin({

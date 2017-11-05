@@ -59,10 +59,12 @@ var config = {
         loader: "file-loader"
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         loaders: [
           'isomorphic-style-loader',
-          'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]'
+          'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]',
+          'postcss-loader',
+          'sass-loader'
         ]
       }
     ]

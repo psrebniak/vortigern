@@ -3,7 +3,7 @@ import { getStars } from 'modules/stars';
 import { IStars, IStarsAction } from 'models/stars';
 const { connect } = require('react-redux');
 const { asyncConnect } = require('redux-connect');
-const style = require('./style.css');
+const style = require('./style.scss');
 
 interface IProps {
   stars: IStars;

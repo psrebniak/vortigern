@@ -39,10 +39,10 @@ var config = {
 
   module: {
     rules: [{
-        enforce: 'pre',
-        test: /\.tsx?$/,
-        loader: 'tslint-loader'
-      },
+      enforce: 'pre',
+      test: /\.tsx?$/,
+      loader: 'tslint-loader'
+    },
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader'
@@ -62,7 +62,8 @@ var config = {
           fallback: 'style-loader',
           use: [
             'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]',
-            'postcss-loader'
+            'postcss-loader',
+            'sass-loader'
           ]
         })
       },
@@ -108,15 +109,19 @@ var config = {
         },
         postcss: function () {
           return [
-            stylelint({
-              files: '../../src/app/*.css'
-            }),
             postcssNext(),
             postcssAssets({
               relative: true
             }),
           ];
         },
+        sass: function () {
+          return [
+            stylelint({
+              files: '../../src/app/*.scss'
+            })
+          ]
+        }
       }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
