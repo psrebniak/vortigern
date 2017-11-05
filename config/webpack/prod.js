@@ -56,7 +56,7 @@ var config = {
         loader: 'json-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         include: path.resolve('./src/app'),
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
